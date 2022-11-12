@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
+  <py-script>
+    import os
+    from dotenv import load_dotenv
+    load_dotenv()
+    
+    API_KEY = os.getenv('PROJECT_API_KEY')
+    
+      </py-script>
   <head>
+    <form>
+      Start Location:<br> <input type="text" name="start">
+      <br>
+      Destination:<br> <input type="text" name="destination">
+   </form>
     <iframe
       width="700"
       height="400"
