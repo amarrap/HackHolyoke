@@ -1,34 +1,119 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<head>
+<!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-            <title>
-	            Five Colleges Travel!
-            </title>
-            <link href="hackholyoke2022.css" rel="stylesheet">
-        </head>
-        <body>
-            <div id = "TitleText">
-                <strong>Five Colleges</strong>
-                <div id = "SubtitleText">
-                    <strong>Travel Green!</strong>
-                </div>
+    <title>
+        Five Colleges Travel!
+    </title>
+    <link href="hackholyoke2022.css" rel="stylesheet">
+</head>
+<body>
+    <div id = "TitleText">
+        <strong>Five Colleges</strong>
+        <div id = "SubtitleText">
+            <strong>Travel Green!</strong>
+        </div>
+    </div>
+    <div id = "MiddleText">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="startInput" aria-describedby="startAddress" placeholder="Where to?">
+                <input type="text" class="form-control" id="destinationInput" aria-describedby="destinationAddress" placeholder="Where from?">
             </div>
-            <div id = "MiddleText">
-                <form>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="startInput" aria-describedby="startAddress" placeholder="Where to?">
-                      <input type="text" class="form-control" id="destinationInput" aria-describedby="destinationAddress" placeholder="Where from?">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-            </div>
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        </body>
-    </html>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+    </div>
+ 
+<!-- Autocomplete API js code -->
+    <script>
+    "use strict";
+
+    function initMap() {
+      const CONFIGURATION = {
+        "ctaTitle": "Go!",
+        "mapOptions": {"center":{"lat":37.4221,"lng":-122.0841},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":true,"zoom":11,"zoomControl":true,"maxZoom":22,"mapId":""},
+        "mapsApiKey": "AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY",
+        "capabilities": {"addressAutocompleteControl":true,"mapDisplayControl":false,"ctaControl":true}
+      };
+      const componentForm = [
+        'location',
+        'locality',
+        'administrative_area_level_1',
+        'country',
+        'postal_code',
+      ];
+
+      const getFormInputElement = (component) => document.getElementById(component + '-input');
+      const autocompleteInput = getFormInputElement('location');
+      const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
+        fields: ["address_components", "geometry", "name"],
+        types: ["address"],
+      });
+      autocomplete.addListener('place_changed', function () {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+          // User entered the name of a Place that was not suggested and
+          // pressed the Enter key, or the Place Details request failed.
+          window.alert('No details available for input: \'' + place.name + '\'');
+          return;
+        }
+        fillInAddress(place);
+      });
+
+      function fillInAddress(place) {  // optional parameter
+        const addressNameFormat = {
+          'street_number': 'short_name',
+          'route': 'long_name',
+          'locality': 'long_name',
+          'administrative_area_level_1': 'short_name',
+          'country': 'long_name',
+          'postal_code': 'short_name',
+        };
+        const getAddressComp = function (type) {
+          for (const component of place.address_components) {
+            if (component.types[0] === type) {
+              return component[addressNameFormat[type]];
+            }
+          }
+          return '';
+        };
+        getFormInputElement('location').value = getAddressComp('street_number') + ' '
+                  + getAddressComp('route');
+        for (const component of componentForm) {
+          // Location field is handled separately above as it has different logic.
+          if (component !== 'location') {
+            getFormInputElement(component).value = getAddressComp(component);
+          }
+        }
+      }
+    }
+    </script>
+
+    <div class="card-container">
+      <div class="panel">
+        <div>
+          <img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+          <span class="sb-title">Address Selection</span>
+        </div>
+        <input type="text" placeholder="Address" id="location-input"/>
+        <!-- <input type="text" placeholder="Apt, Suite, etc (optional)"/> -->
+        <input type="text" placeholder="City" id="locality-input"/>
+        <div class="half-input-container">
+          <input type="text" class="half-input" placeholder="State/Province" id="administrative_area_level_1-input"/>
+          <input type="text" class="half-input" placeholder="Zip/Postal code" id="postal_code-input"/>
+        </div>
+        <input type="text" placeholder="Country" id="country-input"/>
+        <button class="button-cta">Go!</button>
+      </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAC" async defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+</body>
+</html>
