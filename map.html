@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <py-script>
-    import os
-    from dotenv import load_dotenv
-    load_dotenv()
-    
-    API_KEY = os.getenv('PROJECT_API_KEY')
-    
-      </py-script>
+  <script src="config.js"></script>
   <head>
     <form>
       Start Location:<br> <input type="text" name="start">
@@ -19,11 +12,14 @@
       height="400"
       frameborder="0" style="border:0"
       referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBa1luqIEcRrGyGXzG07XhiJW2nn5MZhRM
+      src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY
       &origin=42.314879,-72.639944
       &destination=42.256062,-72.572807"
       allowfullscreen>
     </iframe>
+    <!origin: 42.314879,-72.639944>
+    <!dest: 42.256062,-72.572807>
+    <!apiKey: process.env.PROJECT_API_KEY>
     <title>Locator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
