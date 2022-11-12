@@ -1,0 +1,15 @@
+body { 
+	text-align: center;
+    vertical-align: middle;
+	background-color: #74B72E;
+	font-family: garamond;
+	font-size: 14pt;
+	color: black;
+}
+
+#MainText {
+    color: white;
+    font-family: georgia;
+	font-size: 50pt;
+    text-shadow: .05px .05px 30px #31994c;
+}
