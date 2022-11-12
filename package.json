@@ -1,0 +1,23 @@
+{
+  "name": "hackholyoke",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r dotenv/config server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amarrap/HackHolyoke.git"
+  },
+  "author": "Aline Marra amarra@smith.edu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amarrap/HackHolyoke/issues"
+  },
+  "homepage": "https://github.com/amarrap/HackHolyoke#readme",
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
