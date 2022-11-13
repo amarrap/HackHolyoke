@@ -14,7 +14,7 @@
         'country',
         'postal_code',
       ];
-      var place;
+
       const center = { lat: 42.314879, lng: -72.639944 };
       // Create a bounding box with sides ~10km away from the center point
       const defaultBounds = {
@@ -32,10 +32,13 @@
         types: ["address"],
       };
       const getFormInputElement = (component) => document.getElementById(component + '-input');
+
       const autocompleteInput = getFormInputElement('location');
+
       const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, options);
+
       autocomplete.addListener('place_changed', function () {
-        place = autocomplete.getPlace();
+        const place = autocomplete.getPlace();
         if (!place.geometry) {
           // User entered the name of a Place that was not suggested and
           // pressed the Enter key, or the Place Details request failed.
@@ -47,7 +50,6 @@
 
       function output() {
         location.href='map.html';
-        // console.log(place);
       }
       
       var button = document.getElementById("gobutton");
@@ -62,6 +64,18 @@
           'country': 'long_name',
           'postal_code': 'short_name',
         };
+      }
+
+        function fillInAddress(place) {  // optional parameter
+          const addressNameFormat = {
+            'street_number': 'short_name',
+            'route': 'long_name',
+            'locality': 'long_name',
+            'administrative_area_level_1': 'short_name',
+            'country': 'long_name',
+            'postal_code': 'short_name',
+          };
+
         const getAddressComp = function (type) {
           for (const component of place.address_components) {
             if (component.types[0] === type) {
@@ -70,6 +84,7 @@
           }
           return '';
         };
+
         getFormInputElement('location').value = getAddressComp('street_number') + ' '
                   + getAddressComp('route');
         for (const component of componentForm) {

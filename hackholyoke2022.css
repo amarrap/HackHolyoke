@@ -10,7 +10,7 @@ body {
     color: white;
     transform: translateY(80px);
     font-family: georgia;
-	font-size: 50pt;
+	  font-size: 50pt;
     text-shadow: .05px .05px 30px #31994c;
 }
 
@@ -27,17 +27,27 @@ body {
     transform: translateY(150px);
     padding: 20px;
     width: 50%;
-    height: 370px;
+    height: 430px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  #WhereTo {
-    text-align: left;
+  .leftForm{
+    padding: 20px;
+    width: 50%;
+    height: 370px;
   }
 
-  #WhereFrom {
-    text-align: right;
+  .rightForm{
+    transform: translateY(-370px);
+    padding: 20px;
+    width: 50%;
+    height: 370px;
+    margin-left: auto;
+  }
+
+  #go{
+    transform: translateY(-420px);
   }
 
   .sb-title {
