@@ -15,12 +15,25 @@
         'postal_code',
       ];
 
+      const center = { lat: 42.314879, lng: -72.639944 };
+      // Create a bounding box with sides ~10km away from the center point
+      const defaultBounds = {
+        north: center.lat + 0.3,
+        south: center.lat - 0.3,
+        east: center.lng + 0.2,
+        west: center.lng - 0.2,
+      };
+      const input = document.getElementById("pac-input");
+      const options = {
+        bounds: defaultBounds,
+        componentRestrictions: { country: "us" },
+        fields: ["address_components", "geometry", "name"],
+        strictBounds: true,
+        types: ["address"],
+      };
       const getFormInputElement = (component) => document.getElementById(component + '-input');
       const autocompleteInput = getFormInputElement('location');
-      const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
-        fields: ["address_components", "geometry", "name"],
-        types: ["address"],
-      });
+      const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, options);
       autocomplete.addListener('place_changed', function () {
         const place = autocomplete.getPlace();
         if (!place.geometry) {
