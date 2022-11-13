@@ -45,6 +45,13 @@
         fillInAddress(place);
       });
 
+      function output() {
+        console.log("hi");
+      }
+      
+      var button = document.getElementById("gobutton");
+      button.addEventListener("click", output, true);
+
       function fillInAddress(place) {  // optional parameter
         const addressNameFormat = {
           'street_number': 'short_name',
