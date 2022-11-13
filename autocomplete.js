@@ -46,7 +46,7 @@
       });
 
       function output() {
-        console.log("hi");
+        location.href='map.html';
       }
       
       var button = document.getElementById("gobutton");

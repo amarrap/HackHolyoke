@@ -1,18 +1,19 @@
 <!doctype html>
 <html lang="en">
-<head>
-<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>
-        Five Colleges Travel!
-    </title>
-    <link href="hackholyoke2022.css" rel="stylesheet">
-</head>
-<body>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>
+            Five Colleges Travel!
+        </title>
+        <link href="hackholyoke2022.css" rel="stylesheet">
+    </head>
+    <body>
+    <script type="text/javascript" src="autocomplete.js"></script>
     <div id = "TitleText">
         <strong>Five Colleges</strong>
         <div id = "SubtitleText">
@@ -22,35 +23,52 @@
     <div id = "MiddleText">
         <form>
             <div class="form-group">
-                <input type="text" class="form-control" id="startInput" aria-describedby="startAddress" placeholder="Where to?">
-                <input type="text" class="form-control" id="destinationInput" aria-describedby="destinationAddress" placeholder="Where from?">
+                <input type="text" class="form-control" placeholder="Address" id="location-input"/>
+                <br>
+                <input type="text" class = "form-control" placeholder="City" id="locality-input"/>
+                <br>
+                <input type="text" class="form-control" placeholder="State/Province" id="administrative_area_level_1-input"/>
+                <br>
+                <input type="text" class="form-control" placeholder="Zip/Postal code" id="postal_code-input"/>
+                <br>
+                <input type="text" class = "form-control" placeholder="Country" id="country-input"/>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            
+            
             </form>
+            <button type="submit" class="btn btn-primary" id="gobutton">Go!</button>
     </div>
  
 <!-- Autocomplete API -->
-    <script type="text/javascript" src="autocomplete.js"></script>
-    <div class="card-container">
-      <div class="panel">
-        <div>
-          <img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
-          <span class="sb-title">Address Selection</span>
-        </div>
-        <input type="text" placeholder="Address" id="location-input"/>
-        <!-- <input type="text" placeholder="Apt, Suite, etc (optional)"/> -->
-        <input type="text" placeholder="City" id="locality-input"/>
-        <div class="half-input-container">
-          <input type="text" class="half-input" placeholder="State/Province" id="administrative_area_level_1-input"/>
-          <input type="text" class="half-input" placeholder="Zip/Postal code" id="postal_code-input"/>
-        </div>
-        <input type="text" placeholder="Country" id="country-input"/>
-        <button id="gobutton" class="button-cta">Go!</button>
-      </div>
+<!-- <script type="text/javascript" src="autocomplete.js"></script>
+<div class="card-container">
+  <div class="panel">
+    <div>
+      <span class="sb-title">Origin</span>
     </div>
+    <input type="text" placeholder="Address" id="location-input"/>
+    <input type="text" placeholder="Apt, Suite, etc (optional)"/>
+    <input type="text" placeholder="City" id="locality-input"/>
+    <div class="half-input-container">
+      <input type="text" class="half-input" placeholder="State/Province" id="administrative_area_level_1-input"/>
+      <input type="text" class="half-input" placeholder="Zip/Postal code" id="postal_code-input"/>
+    </div>
+    <input type="text" placeholder="Country" id="country-input"/>
+    <button id="gobutton" class="button-cta">Go!</button>
+  </div>
+</div> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAC" async defer></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-</body>
+
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+
+  </body>
 </html>
