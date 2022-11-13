@@ -1,6 +1,6 @@
-#Pioneer Valley Travel Green
+## Pioneer Valley Travel Green
 
-#For HackHolyoke 2022
+## For HackHolyoke 2022
 
 Access at https://amarrap.github.io/HackHolyoke/
 
