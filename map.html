@@ -6,7 +6,7 @@
     </head>
     <body>
       <script>
-        var dist = 0.6;
+        var dist = 11;//in miles
         var carCost = Math.round(dist * 3.861 / 24.2 * 100) / 100;
         var carEmissions =  dist * 8887;
         var carSteps = 0;
@@ -16,7 +16,7 @@
         var walkSteps = 2218 * dist;
       </script>
       <div id="insideM">
-        <strong>How should I get there?</strong>
+        <strong><div id = myTitle>How should I get there?</strong></div>
         <br>
         <br>
         <div id="car">
@@ -24,9 +24,7 @@
           <br>
           Cost: $<script>document.write(carCost);</script>
           <br>
-          Emissions: <script>document.write(carEmissions);</script> g CO2
-          <br>
-          Steps taken: 0
+          <div class = red>Emissions: <script>document.write(carEmissions);</script> g CO2</div>
         </div>
         <div id="bus">
           <strong>Bus</strong>
@@ -35,18 +33,16 @@
           <br>
           for 5 college students
           <br>
-          Emissions: <script>document.write(busEmissions);</script> g CO2
+          <div class="green">Emissions: <script>document.write(busEmissions);</script> g CO2</div>
           <br>
-          Steps taken: 
         </div>
         <div id="walk">
           <strong>Walking</strong>
           <br>
           Cost: $0
           <br>
-          Emissions: 0 g CO2
-          <br>
-          Steps taken: <script>document.write(walkSteps);</script>
+          <div class="green">Emissions: 0 g CO2</div>
+          <div class="purple">Steps taken: <script>document.write(walkSteps);</script></div>
         </div>
     </div>
     <br>
@@ -62,7 +58,7 @@
         height="400"
         frameborder="0" style="border:0"
         referrerpolicy="no-referrer-when-downgrade"
-        src= "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY&origin=3+Green+St+Northampton&destination=116+Pleasant+St+Northampton"
+        src= "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY&origin=3+Green+St+Northampton&destination=50+College+St+South+Hadley"
         allowfullscreen>
     </iframe>
     <script>
