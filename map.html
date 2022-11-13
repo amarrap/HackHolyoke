@@ -50,13 +50,27 @@
         </div>
     </div>
     <br>
+      <script>
+        var streetLoc = document.getElementById('location-input').value;
+        var cityLoc = document.getElementById('locality-input').value;
+        var streetLoc2 = document.getElementById('location-input2').value;
+        var cityLoc2 = document.getElementById('locality-input2').value;
+      </script>
       <iframe
+        id = "myMap"
         width="700"
         height="400"
         frameborder="0" style="border:0"
         referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY&origin=42.314879,-72.639944&destination=42.256062,-72.572807"
+        src= "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY&origin=3+Green+St+Northampton&destination=116+Pleasant+St+Northampton"
         allowfullscreen>
     </iframe>
+    <script>
+      document.getElementById("myMap").src =
+              mapURL+ ReturnURL();
+      var mapURL = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY&origin=" + streetLoc.replace(" ", "+") + cityLoc + "&destination=" + streetLoc2.replace(" ", "+") + cityLoc;
+      //document.getElementById("myURL").innerHTML = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAfsKXONZTLMvwC0PmW2NIm8Xx6CwkKRyY&origin=3+Green+St+Northampton&destination=116+Pleasant+St+Northampton";
+    </script>
+
     </body>
 </html>
