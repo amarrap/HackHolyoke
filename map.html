@@ -5,6 +5,51 @@
       <title>Map</title>
     </head>
     <body>
+      <script>
+        var dist = 15;
+        var carCost = Math.round(dist * 3.861 / 24.2 * 100) / 100;
+        var carEmissions =  dist * 8887;
+        var carSteps = 0;
+
+        var busEmissions = 146 * dist;
+
+        var walkSteps = 2218 * dist;
+      </script>
+      <div id="insideM">
+        <strong>How should I get there?</strong>
+        <br>
+        <br>
+        <div id="car">
+          <strong>Car</strong>
+          <br>
+          Cost: $<script>document.write(carCost);</script>
+          <br>
+          Emissions: <script>document.write(carEmissions);</script> g CO2
+          <br>
+          Steps taken: 0
+        </div>
+        <div id="bus">
+          <strong>Bus</strong>
+          <br>
+          Cost: $1.50, or free 
+          <br>
+          for 5 college students
+          <br>
+          Emissions: <script>document.write(busEmissions);</script> g CO2
+          <br>
+          Steps taken: 
+        </div>
+        <div id="walk">
+          <strong>Walking</strong>
+          <br>
+          Cost: $0
+          <br>
+          Emissions: 0 g CO2
+          <br>
+          Steps taken: <script>document.write(walkSteps);</script>
+        </div>
+    </div>
+    <br>
       <iframe
         width="700"
         height="400"
