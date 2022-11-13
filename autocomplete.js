@@ -14,7 +14,7 @@
         'country',
         'postal_code',
       ];
-
+      var place;
       const center = { lat: 42.314879, lng: -72.639944 };
       // Create a bounding box with sides ~10km away from the center point
       const defaultBounds = {
@@ -35,7 +35,7 @@
       const autocompleteInput = getFormInputElement('location');
       const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, options);
       autocomplete.addListener('place_changed', function () {
-        const place = autocomplete.getPlace();
+        place = autocomplete.getPlace();
         if (!place.geometry) {
           // User entered the name of a Place that was not suggested and
           // pressed the Enter key, or the Place Details request failed.
@@ -47,6 +47,7 @@
 
       function output() {
         location.href='map.html';
+        // console.log(place);
       }
       
       var button = document.getElementById("gobutton");
