@@ -53,14 +53,33 @@ body {
     width: 30%;
     margin-left: auto;
     margin-right: auto;
-    transform: translateY(-85px);
+    transform: translateY(-70px);
   }
 
   #walk{
     text-align: left;
     width: 30%;
     margin-left: auto;
-    transform: translateY(-185px);
+    transform: translateY(-175px);
+  }
+
+  .green{
+    color: green;
+    font-weight: bold;
+  }
+
+  .red{
+    color: red;
+    font-weight: bold;
+  }
+
+  .purple{
+    color: purple;
+    font-weight: bold;
+  }
+
+  #myTitle {
+    font-size: 18pt;
   }
 
   .leftForm{
